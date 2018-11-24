@@ -1,0 +1,25 @@
+{
+  "name": "wok-it-out",
+  "version": "1.0.0",
+  "description": "Find the best recipes with just a picture of your ingredients!",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jason8Ni/wok-it-out.git"
+  },
+  "keywords": [
+    "image",
+    "recognization",
+    "mobile",
+    "app"
+  ],
+  "author": "Jason Ni, Mulan Ramani, Derek Liu, Naitao Cui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jason8Ni/wok-it-out/issues"
+  },
+  "homepage": "https://github.com/Jason8Ni/wok-it-out#readme"
+}
