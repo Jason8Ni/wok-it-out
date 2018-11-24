@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Jason8Ni/wok-it-out#readme",
   "dependencies": {
     "cordova": "^8.1.2",
+    "express": "^4.16.4",
     "ionic": "^4.4.0"
   }
 }
