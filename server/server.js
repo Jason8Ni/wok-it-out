@@ -9,5 +9,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(cors());
- 
-app.listen(process.env.PORT || 8080);
+
+app.get('/', (req, res) => {
+  res.send('An alligator approaches!');
+});
+
+app.listen(8100, () => console.log('Gator app listening on port 8100!'));
