@@ -23,7 +23,12 @@
   },
   "homepage": "https://github.com/Jason8Ni/wok-it-out#readme",
   "dependencies": {
+    "@google-cloud/vision": "^0.23.0",
     "cordova": "^8.1.2",
-    "ionic": "^4.4.0"
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "ionic": "^4.4.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1"
   }
 }
