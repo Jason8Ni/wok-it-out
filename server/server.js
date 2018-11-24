@@ -23,4 +23,4 @@ app.get('/processImage', function(req, res) {
 	
 })
 
-app.listen(process.env.PORT || 8100);
+app.listen(8100);
