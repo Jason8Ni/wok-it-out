@@ -9,5 +9,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(cors());
- 
+
+// export GOOGLE_APPLICATION_CREDENTIALS="./WokItOut-b8620903dcc1.json";
+
+const vision = require('@google-cloud/vision');
+const client = new vision.ImageAnnotatorClient();
+
+app.get('/processImage', function(req, res) {
+	client
+		.labelDetection('../public/images/wok.jpg')
+		.then(results => {
+			const labels = results[0].labelAnnotations
+			res.send(labels);
+		})
+	
+})
+
 app.listen(process.env.PORT || 8080);
