@@ -22,15 +22,20 @@ app.get('/', function(req, res) {
 })
 
 app.post('/uploadAndProcess', function(req, res) {
-	fs.writeFile("out.png", req.body.base64Img, 'base64', function(err) {
-	  console.log(err);
-	});
-	client
-		.labelDetection('./out.png')
-		.then(results => {
-			const labels = results[0].labelAnnotations
-			res.send(labels);
-		})
+  if(!req.body.base64Image) {
+    res.status(401).send({message: 'Sorry, no data!'});
+  } else {
+    fs.writeFile("out.png", req.body.base64Image, 'base64', function(err) {
+      console.log(err);
+    });
+    client
+      .labelDetection('./out.png')
+      .then(results => {
+        const labels = results[0].labelAnnotations;
+        console.log(labels);
+        res.send(labels);
+      });
+  }
 })
 
 app.get('/queryRecipe', function(req, res) {
@@ -42,6 +47,20 @@ app.get('/queryRecipe', function(req, res) {
 			res.send(JSON.parse(body).hits);
 		})
 })
+
+app.post('/checkPhoto', function(req, res){
+ 
+  if(!req.body.base64Image){
+
+      res.status(401).send({message: 'Sorry, no data!'});
+
+  } else {
+      res.send({
+          passed: true,
+          message: 'FUCK YEAH'
+      });
+  }
+});
 
 app.listen(8101);
 
