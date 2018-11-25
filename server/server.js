@@ -1,4 +1,3 @@
-//const fetch = require("node-fetch");
 var request = require('request');
 const edamamEnvVars = require("./edamamEnvVar.js") 
 
