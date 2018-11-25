@@ -39,7 +39,28 @@ app.get('/queryRecipe', function(req, res) {
 	const url = "https://api.edamam.com/search?q=chicken&app_id=a2f3eb05&app_key=28465817b5ea90aaa8e5ce019f5f5d61";
 
 	request(url, function(error, response, body) {
-			res.send(JSON.parse(body).hits);
+			// needed parts of JSON are recipe -> url, image, ingredientLines
+
+			var jsonFile = JSON.parse(body).hits
+			let ingredientResultArray = jsonFile.map(a => a.recipe.ingredientLines)
+			let imageURLArray = jsonFile.map(a => a.recipe.image)
+			let recipeURLArray = jsonFile.map(a => a.recipe.url)
+
+			var jsonArray = new Array();
+
+			for (var i = 0; i < recipeURLArray.length; i++) {
+				// add the ith index stuff to a JSON nest
+				var jsonArgs = new Object();
+				    jsonArgs.recipeURL = recipeURLArray[i];
+				    jsonArgs.imageURL = imageURLArray[i];
+				    jsonArgs.ingredientsList = ingredientResultArray[i];	
+	
+			    jsonArray.push(jsonArgs);
+			}
+
+			var jsonString = JSON.parse(JSON.stringify(jsonArray))
+
+			res.send(jsonArray);
 		})
 })
 
