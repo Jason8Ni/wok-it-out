@@ -7,10 +7,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override')
 var cors = require('cors');
-// var multer = require('multer');
-// var path = require('path');
 var fs = require('fs');
-var Readable = require('stream').Readable
 
 var app = express();
 app.use(logger('dev'));
@@ -48,5 +45,5 @@ app.get('/queryRecipe', function(req, res) {
 		})
 })
 
-app.listen(8100);
+app.listen(8101);
 
