@@ -43,11 +43,6 @@ app.get('/queryRecipe', function(req, res) {
 		})
 })
 
-app.post('/checkData', function(req, res) {
-  console.log(req.body);
-  res.status(200).send({message: 'Jason sux big P3N1S'});
-})
-
 app.listen(8101);
 
 
