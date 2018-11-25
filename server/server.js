@@ -36,5 +36,10 @@ app.get('/queryRecipe', function(req, res) {
 		})
 })
 
+app.post('/checkData', function(req, res) {
+  console.log(req.body);
+  res.status(200).send({message: 'PENIS'});
+})
+
 app.listen(8101);
 

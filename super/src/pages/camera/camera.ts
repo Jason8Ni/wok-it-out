@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import {Camera, CameraOptions} from '@ionic-native/camera';
+import {Http} from '@angular/http';
 
 
 /**
@@ -17,7 +18,8 @@ export class CameraPage {
   constructor(
     public navCtrl: NavController,
     private camera: Camera,
-    private alertCtrl : AlertController
+    private alertCtrl : AlertController,
+    private http: Http
   ) {
 
   }
@@ -62,6 +64,14 @@ export class CameraPage {
       }, (err) => {
         console.log(err);
       });
+  }
+
+  sendPhotos() {
+    var data = 'memememme';
+
+    this.http.post('http://localhost:8101/checkData', data).subscribe(response => {
+      console.log('POST Response:', response);
+    });
   }
 
 }
